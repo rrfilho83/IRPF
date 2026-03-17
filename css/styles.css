@@ -1,25 +1,120 @@
-/* =============================
-   Tema Preto + Dourado (IRPF)
-   ============================= */
-:root{ --gold:#D4AF37; --gold-bright:#FFD700; --gold-muted:rgba(212,175,55,0.25); --bg:#000000; --text:#D4AF37; }
-html,body{ background:var(--bg); color:var(--text); }
 
-/* Alto relevo (padrão) */
-.card-elevated{ position:relative; background:#000; border:1px solid var(--gold-muted); border-radius:1.25rem; transition:transform .25s, box-shadow .25s, border-color .25s; box-shadow:0 1px 0 rgba(255,215,0,.10), 0 10px 20px rgba(0,0,0,.65), 0 6px 12px rgba(255,215,0,.05); }
-.card-elevated::before{ content:""; position:absolute; inset:0; border-radius:inherit; background:linear-gradient(to bottom, rgba(255,215,0,.15), rgba(255,215,0,0) 40%); pointer-events:none; mix-blend-mode:screen; opacity:.65; }
-.card-elevated::after{ content:""; position:absolute; left:8px; right:8px; bottom:-2px; height:6px; border-radius:999px; background:radial-gradient(50% 100% at 50% 0%, rgba(255,215,0,.22) 0%, rgba(255,215,0,0) 75%); filter:blur(6px); pointer-events:none; }
-.card-elevated:hover{ transform:translateY(-3px); border-color:rgba(255,215,0,.40); box-shadow:0 2px 0 rgba(255,215,0,.15), 0 18px 30px rgba(0,0,0,.75), 0 10px 18px rgba(255,215,0,.08); }
-.card-elevated:active{ transform:translateY(0); box-shadow:inset 0 1px 0 rgba(255,215,0,.15), inset 0 -12px 22px rgba(0,0,0,.6), 0 8px 16px rgba(0,0,0,.45); }
+/* === Tema Preto + Dourado (core) === */
+:root{
+  --gold: #D4AF37;           /* Dourado clássico */
+  --gold-bright: #FFD700;    /* Dourado vivo */
+  --gold-muted: rgba(212,175,55,0.25);
+  --bg: #000000;
+  --text: #D4AF37;
+}
 
-.icon-medal{ background:rgba(212,175,55,0.12); color:var(--gold-bright); border:1px solid rgba(212,175,55,0.28); box-shadow:0 6px 14px rgba(0,0,0,.45), inset 0 1px 0 rgba(255,215,0,.18); transition:background .25s, color .25s, transform .25s; }
-.card-elevated:hover .icon-medal{ background:var(--gold-bright); color:#000; transform:translateY(-1px); }
+html, body { background: var(--bg); color: var(--text); }
+header, main, footer { position: relative; z-index: 1; }
 
-/* Alto relevo ULTRA */
-.card-elevated-ultra{ border-color:rgba(255,215,0,0.5); box-shadow:0 0 0 1px rgba(255,215,0,0.25), 0 2px 0 rgba(255,215,0,0.20), 0 22px 38px rgba(0,0,0,0.80), 0 14px 28px rgba(255,215,0,0.10), 0 0 48px rgba(255,215,0,0.06); }
-.card-elevated-ultra::before{ background:linear-gradient(to bottom, rgba(255,215,0,.22), rgba(255,215,0,0) 50%); opacity:.9; }
-.card-elevated-ultra:hover{ transform:translateY(-4px); border-color:rgba(255,215,0,0.65); box-shadow:0 0 0 1px rgba(255,215,0,0.35), 0 4px 0 rgba(255,215,0,0.22), 0 28px 46px rgba(0,0,0,0.86), 0 18px 36px rgba(255,215,0,0.14), 0 0 64px rgba(255,215,0,0.10); }
-.card-elevated-ultra:active{ transform:translateY(-1px); box-shadow:inset 0 2px 0 rgba(255,215,0,0.18), inset 0 -16px 26px rgba(0,0,0,0.65), 0 18px 30px rgba(0,0,0,0.55); }
-.icon-medal-ultra{ background:radial-gradient(120% 120% at 30% 20%, rgba(255,215,0,0.28) 0%, rgba(212,175,55,0.10) 55%, rgba(212,175,55,0,0) 100%), rgba(212,175,55,0.12); border:1.5px solid rgba(255,215,0,0.45); box-shadow:0 10px 18px rgba(0,0,0,0.55), inset 0 1px 0 rgba(255,215,0,0.25), 0 0 24px rgba(255,215,0,0.10); }
-.card-elevated-ultra:hover .icon-medal-ultra{ background:radial-gradient(120% 120% at 30% 20%, rgba(255,215,0,0.55) 0%, rgba(255,215,0,0.22) 45%, rgba(255,215,0,0.10) 100%), #000; color:#000; outline:2px solid rgba(255,215,0,0.35); filter:drop-shadow(0 10px 22px rgba(255,215,0,0.18)); }
+/* === Card base (alto-relevo) === */
+.card-elevated {
+  position: relative;
+  background: #000;
+  border: 1px solid var(--gold-muted);
+  border-radius: 1.25rem;                 /* ~rounded-2xl */
+  transition: transform .25s ease, box-shadow .25s ease, border-color .25s ease;
+  box-shadow:
+    0 1px 0 rgba(255,215,0,0.10),
+    0 10px 20px rgba(0,0,0,0.65),
+    0 6px 12px rgba(255,215,0,0.05);
+}
+.card-elevated::before{
+  content:"";
+  position:absolute; inset:0; border-radius:inherit;
+  background:linear-gradient(to bottom, rgba(255,215,0,.15), rgba(255,215,0,0) 40%);
+  pointer-events:none; mix-blend-mode:screen; opacity:.65;
+}
+.card-elevated::after{
+  content:"";
+  position:absolute; left:8px; right:8px; bottom:-2px; height:6px; border-radius:999px;
+  background:radial-gradient(50% 100% at 50% 0%, rgba(255,215,0,.22) 0%, rgba(255,215,0,0) 75%);
+  filter:blur(6px); pointer-events:none;
+}
+.card-elevated:hover{
+  transform:translateY(-3px);
+  border-color: rgba(255,215,0,.40);
+  box-shadow:
+    0 2px 0 rgba(255,215,0,.15),
+    0 18px 30px rgba(0,0,0,.75),
+    0 10px 18px rgba(255,215,0,.08);
+}
+.card-elevated:active{
+  transform:translateY(0);
+  box-shadow:
+    inset 0 1px 0 rgba(255,215,0,.15),
+    inset 0 -12px 22px rgba(0,0,0,.6),
+    0 8px 16px rgba(0,0,0,.45);
+}
 
-@media (prefers-reduced-motion: reduce){ .card-elevated, .card-elevated-ultra, .icon-medal, .icon-medal-ultra{ transition:none !important; transform:none !important; }}
+/* === Versão ULTRA (mais brilho e contornos) === */
+.card-elevated-ultra{
+  border-color: rgba(255,215,0,0.5);
+  box-shadow:
+    0 0 0 1px rgba(255,215,0,0.25),
+    0 2px 0 rgba(255,215,0,0.20),
+    0 22px 38px rgba(0,0,0,0.80),
+    0 14px 28px rgba(255,215,0,0.10),
+    0 0 48px rgba(255,215,0,0.06);
+}
+.card-elevated-ultra::before{
+  background: linear-gradient(to bottom, rgba(255,215,0,0.22), rgba(255,215,0,0) 50%);
+  opacity: .9;
+}
+.card-elevated-ultra:hover{
+  transform: translateY(-4px);
+  border-color: rgba(255,215,0,0.65);
+  box-shadow:
+    0 0 0 1px rgba(255,215,0,0.35),
+    0 4px 0 rgba(255,215,0,0.22),
+    0 28px 46px rgba(0,0,0,0.86),
+    0 18px 36px rgba(255,215,0,0.14),
+    0 0 64px rgba(255,215,0,0.10);
+}
+.card-elevated-ultra:active{
+  transform: translateY(-1px);
+  box-shadow:
+    inset 0 2px 0 rgba(255,215,0,0.18),
+    inset 0 -16px 26px rgba(0,0,0,0.65),
+    0 18px 30px rgba(0,0,0,0.55);
+}
+
+/* === Medalhão de ícones nos cards === */
+.icon-medal{
+  background: rgba(212,175,55,0.12);
+  color: var(--gold-bright);
+  border: 1px solid rgba(212,175,55,0.28);
+  box-shadow: 0 6px 14px rgba(0,0,0,0.45), inset 0 1px 0 rgba(255,215,0,0.18);
+  transition: background .25s ease, color .25s ease, transform .25s ease;
+}
+.card-elevated:hover .icon-medal{
+  background: var(--gold-bright);
+  color:#000;
+  transform: translateY(-1px);
+}
+
+/* Medalhão versão ULTRA (contorno e brilho adicionais) */
+.icon-medal-ultra{
+  background: radial-gradient(120% 120% at 30% 20%, rgba(255,215,0,0.28) 0%, rgba(212,175,55,0.10) 55%, rgba(212,175,55,0.00) 100%), rgba(212,175,55,0.12);
+  border: 1.5px solid rgba(255,215,0,0.45);
+  box-shadow: 0 10px 18px rgba(0,0,0,0.55), inset 0 1px 0 rgba(255,215,0,0.25), 0 0 24px rgba(255,215,0,0.10);
+}
+.card-elevated-ultra:hover .icon-medal-ultra{
+  background: radial-gradient(120% 120% at 30% 20%, rgba(255,215,0,0.55) 0%, rgba(255,215,0,0.22) 45%, rgba(255,215,0,0.10) 100%), #000;
+  color: #000;
+  outline: 2px solid rgba(255,215,0,0.35);
+  filter: drop-shadow(0 10px 22px rgba(255,215,0,0.18));
+}
+
+/* Acessibilidade: reduzir animações/transições */
+@media (prefers-reduced-motion: reduce){
+  .card-elevated, .card-elevated-ultra,
+  .icon-medal, .icon-medal-ultra{
+    transition: none !important;
+    transform: none !important;
+  }
+}
